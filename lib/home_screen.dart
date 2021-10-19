@@ -20,6 +20,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: const [
             ScreenNavigationButton(),
+            ShowDialogButton(),
           ],
         ),
       ),

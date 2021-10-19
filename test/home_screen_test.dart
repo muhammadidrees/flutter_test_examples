@@ -24,5 +24,12 @@ void main() {
       );
       expect(find.byType(ScreenNavigationButton), findsOneWidget);
     });
+
+    testWidgets("contains show dialog button", (tester) async {
+      await TestHelpers.forTester(tester).pumpScreen(
+        const HomeScreen(),
+      );
+      expect(find.byType(ShowDialogButton), findsOneWidget);
+    });
   });
 }
