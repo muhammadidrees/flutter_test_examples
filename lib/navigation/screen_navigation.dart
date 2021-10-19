@@ -14,6 +14,7 @@ class Page2 extends StatelessWidget {
 
   static Route route() => MaterialPageRoute(
         builder: (_) => const Page2(),
+        settings: const RouteSettings(name: "/page2"),
       );
 
   @override
