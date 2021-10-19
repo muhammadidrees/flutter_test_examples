@@ -6,8 +6,8 @@ class ShowDialogButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      key: const Key("navigate-to-page2-button"),
-      child: const Text("Navigate to new Screen"),
+      key: const Key("show-dialog-button"),
+      child: const Text("Show Dialog"),
       onPressed: () {
         Navigator.of(context).push(Page2.route());
       },
