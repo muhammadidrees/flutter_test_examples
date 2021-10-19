@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_test_examples/navigation/navigation.dart';
+import 'package:mockingjay/mockingjay.dart';
 
 import '../test_helpers.dart';
 
@@ -12,6 +13,34 @@ void main() {
       );
 
       expect(find.byType(ScreenNavigationButton), findsOneWidget);
+    });
+
+    testWidgets("navigates to Page2 on tap", (tester) async {
+      final navigator = MockNavigator();
+      when(() => navigator.push(any())).thenAnswer((_) async {});
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: MockNavigatorProvider(
+            navigator: navigator,
+            child: const Scaffold(
+              body: ScreenNavigationButton(),
+            ),
+          ),
+        ),
+      );
+
+      Finder navigationButton =
+          find.byKey(const Key("navigate-to-page2-button"));
+
+      expect(navigationButton, findsOneWidget);
+
+      await tester.tap(navigationButton);
+      await tester.pumpAndSettle();
+
+      verify(
+        () => navigator.push(any(that: isRoute<void>(named: '/page2'))),
+      ).called(1);
     });
   });
 

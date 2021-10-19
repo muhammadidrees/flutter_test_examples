@@ -5,7 +5,13 @@ class ScreenNavigationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ElevatedButton(
+      key: const Key("navigate-to-page2-button"),
+      child: const Text("Navigate to new Screen"),
+      onPressed: () {
+        Navigator.of(context).push(Page2.route());
+      },
+    );
   }
 }
 
@@ -19,6 +25,8 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+    );
   }
 }
