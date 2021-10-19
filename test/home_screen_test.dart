@@ -3,17 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_test_examples/home_screen.dart';
 import 'package:flutter_test_examples/navigation/navigation.dart';
 
-Future<void> pumpHomeScreenWidget(WidgetTester tester) async =>
-    tester.pumpWidget(
-      const MaterialApp(
-        home: HomeScreen(),
-      ),
-    );
+import 'test_helpers.dart';
 
 void main() {
   group("HomeScreen", () {
-    testWidgets("renders home screen", (tester) async {
-      await pumpHomeScreenWidget(tester);
+    testWidgets("can render", (tester) async {
+      await TestHelpers.forTester(tester).pumpScreen(
+        const HomeScreen(),
+      );
       expect(find.byType(HomeScreen), findsOneWidget);
     });
 
@@ -22,7 +19,9 @@ void main() {
     });
 
     testWidgets("contains navigate to page button", (tester) async {
-      await pumpHomeScreenWidget(tester);
+      await TestHelpers.forTester(tester).pumpScreen(
+        const HomeScreen(),
+      );
       expect(find.byType(ScreenNavigationButton), findsOneWidget);
     });
   });

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_test_examples/navigation/navigation.dart';
 
+import '../test_helpers.dart';
+
 Future<void> pumpScreenNavigationButtonWidget(WidgetTester tester) async =>
     tester.pumpWidget(
       const MaterialApp(
@@ -12,9 +14,11 @@ Future<void> pumpScreenNavigationButtonWidget(WidgetTester tester) async =>
     );
 
 void main() {
-  group("Screen Navigation", () {
+  group("Screen Navigation Widget", () {
     testWidgets("can render", (tester) async {
-      await pumpScreenNavigationButtonWidget(tester);
+      await TestHelpers.forTester(tester).pumpWidget(
+        const ScreenNavigationButton(),
+      );
 
       expect(find.byType(ScreenNavigationButton), findsOneWidget);
     });
@@ -26,10 +30,8 @@ void main() {
     });
 
     testWidgets("can render", (tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: Page2(),
-        ),
+      await TestHelpers.forTester(tester).pumpScreen(
+        const Page2(),
       );
       expect(find.byType(Page2), findsOneWidget);
     });
