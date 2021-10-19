@@ -4,9 +4,10 @@ import 'package:flutter_test_examples/navigation/navigation.dart';
 
 Future<void> pumpScreenNavigationButtonWidget(WidgetTester tester) async =>
     tester.pumpWidget(
-      const Scaffold(
-        body: ScreenNavigationButton(),
-      ),
+      const MaterialApp(
+        home: Scaffold(
+          body: ScreenNavigationButton(),
+        ),
     );
 
 void main() {
