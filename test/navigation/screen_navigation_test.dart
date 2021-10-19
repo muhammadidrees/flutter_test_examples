@@ -4,15 +4,6 @@ import 'package:flutter_test_examples/navigation/navigation.dart';
 
 import '../test_helpers.dart';
 
-Future<void> pumpScreenNavigationButtonWidget(WidgetTester tester) async =>
-    tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
-          body: ScreenNavigationButton(),
-        ),
-      ),
-    );
-
 void main() {
   group("Screen Navigation Widget", () {
     testWidgets("can render", (tester) async {
