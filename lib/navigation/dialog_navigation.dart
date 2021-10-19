@@ -9,7 +9,13 @@ class ShowDialogButton extends StatelessWidget {
       key: const Key("show-dialog-button"),
       child: const Text("Show Dialog"),
       onPressed: () {
-        Navigator.of(context).push(Page2.route());
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+            title: Text("Alert"),
+            content: Text("You have been alerted!"),
+          ),
+        );
       },
     );
   }
