@@ -8,3 +8,16 @@ class ScreenNavigationButton extends StatelessWidget {
     return Container();
   }
 }
+
+class Page2 extends StatelessWidget {
+  const Page2({Key? key}) : super(key: key);
+
+  static Route route() => MaterialPageRoute(
+        builder: (_) => const Page2(),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

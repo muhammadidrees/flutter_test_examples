@@ -8,6 +8,7 @@ Future<void> pumpScreenNavigationButtonWidget(WidgetTester tester) async =>
         home: Scaffold(
           body: ScreenNavigationButton(),
         ),
+      ),
     );
 
 void main() {
@@ -16,6 +17,21 @@ void main() {
       await pumpScreenNavigationButtonWidget(tester);
 
       expect(find.byType(ScreenNavigationButton), findsOneWidget);
+    });
+  });
+
+  group("Page2", () {
+    test("has route", () {
+      expect(Page2.route(), isA<MaterialPageRoute>());
+    });
+
+    testWidgets("can render", (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Page2(),
+        ),
+      );
+      expect(find.byType(Page2), findsOneWidget);
     });
   });
 }
