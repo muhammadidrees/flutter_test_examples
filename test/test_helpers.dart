@@ -6,7 +6,7 @@ class TestHelpers {
 
   TestHelpers(this.tester);
 
-  factory TestHelpers.forTester(WidgetTester tester) => TestHelpers(tester);
+  factory TestHelpers.of(WidgetTester tester) => TestHelpers(tester);
 
   Future<void> pumpWidget(Widget widget) async => tester.pumpWidget(
         MaterialApp(

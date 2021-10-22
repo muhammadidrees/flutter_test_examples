@@ -8,7 +8,7 @@ import 'test_helpers.dart';
 void main() {
   group("HomeScreen", () {
     testWidgets("can render", (tester) async {
-      await TestHelpers.forTester(tester).pumpScreen(
+      await TestHelpers.of(tester).pumpScreen(
         const HomeScreen(),
       );
       expect(find.byType(HomeScreen), findsOneWidget);
@@ -19,14 +19,14 @@ void main() {
     });
 
     testWidgets("contains navigate to page button", (tester) async {
-      await TestHelpers.forTester(tester).pumpScreen(
+      await TestHelpers.of(tester).pumpScreen(
         const HomeScreen(),
       );
       expect(find.byType(ScreenNavigationButton), findsOneWidget);
     });
 
     testWidgets("contains show dialog button", (tester) async {
-      await TestHelpers.forTester(tester).pumpScreen(
+      await TestHelpers.of(tester).pumpScreen(
         const HomeScreen(),
       );
       expect(find.byType(ShowDialogButton), findsOneWidget);

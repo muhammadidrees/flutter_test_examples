@@ -8,7 +8,7 @@ import '../test_helpers.dart';
 void main() {
   group("Dialog Navigation Widget", () {
     testWidgets("can render", (tester) async {
-      await TestHelpers.forTester(tester).pumpWidget(
+      await TestHelpers.of(tester).pumpWidget(
         const ShowDialogButton(),
       );
 

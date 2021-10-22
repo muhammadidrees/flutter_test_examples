@@ -8,7 +8,7 @@ import '../test_helpers.dart';
 void main() {
   group("Screen Navigation Widget", () {
     testWidgets("can render", (tester) async {
-      await TestHelpers.forTester(tester).pumpWidget(
+      await TestHelpers.of(tester).pumpWidget(
         const ScreenNavigationButton(),
       );
 
@@ -50,7 +50,7 @@ void main() {
     });
 
     testWidgets("can render", (tester) async {
-      await TestHelpers.forTester(tester).pumpScreen(
+      await TestHelpers.of(tester).pumpScreen(
         const Page2(),
       );
       expect(find.byType(Page2), findsOneWidget);
